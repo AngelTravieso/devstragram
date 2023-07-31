@@ -26,8 +26,17 @@
                         name="name"
                         type="text"
                         placeholder="Tu Nombre"
-                        class="border p-3 w-full rounded"
+                        class="border p-3 w-full rounded @error('name') border-red-500 @enderror"
+                        value="{{ old('name') }}"
                     />
+
+                    @error('name')
+                        <p class="text-white bg-red-500 rounded-lg text-sm my-2 p-2 text-center">
+                            {{-- Mensaje de error --}}
+                            {{ $message }}
+                        </p>
+                    @enderror
+
                 </div>
 
                 <div class="mb-5">

@@ -27,9 +27,14 @@ class RegisterController extends Controller
         // dd($request);
 
         // Para acceder directamente a un valor
-        dd($request->get('username'));
+        // dd($request->get('username'));
 
-        // TODO: validacion
+        // Reglas de validación
+        $this->validate($request, [
+            // key => reglas
+            // 'name' => 'required|min:5',
+            'name' => ['required', 'max:30'],
+        ]);
     }
 
 
