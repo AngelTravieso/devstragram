@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { // => closure
     return view('principal');
 });
+
+// ruta, [clase, metodo]
+Route::get('/crear-cuenta', [RegisterController::class, 'index']);
