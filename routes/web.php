@@ -20,3 +20,4 @@ Route::get('/', function () { // => closure
 
 // ruta, [clase, metodo]
 Route::get('/crear-cuenta', [RegisterController::class, 'index']);
+Route::post('/crear-cuenta', [RegisterController::class, 'store']);
