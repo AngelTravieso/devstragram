@@ -21,9 +21,15 @@ class RegisterController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('POST...');
+        // dd() => die and dump
+        // dd($request);
+
+        // Para acceder directamente a un valor
+        dd($request->get('username'));
+
+        // TODO: validacion
     }
 
 
