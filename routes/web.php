@@ -19,5 +19,5 @@ Route::get('/', function () { // => closure
 });
 
 // ruta, [clase, metodo]
-Route::get('/crear-cuenta', [RegisterController::class, 'index']);
-Route::post('/crear-cuenta', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register'); // esto hace que los cambios se propagan
+Route::post('/register', [RegisterController::class, 'store']); // si no especifico el name toma el anterior (esto aplica si es la misma url que la anterior)

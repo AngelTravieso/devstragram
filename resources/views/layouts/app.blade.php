@@ -15,7 +15,8 @@
 
                 <nav class="flex gap-2 items-center">
                     <a class="font-bold uppercase text-gray-600 text-sm" href="#">Login</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="#">Crear Cuenta</a>
+                    {{-- Toma el nombre de la ruta que definimos con ->name('register'), no es la URL  --}}
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('register') }}">Crear Cuenta</a>
                 </nav>
 
             </div>

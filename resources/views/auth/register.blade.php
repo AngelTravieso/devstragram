@@ -13,7 +13,8 @@
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow">
-            <form action="/crear-cuenta" method="POST">
+            {{-- /register --}}
+            <form action="{{ route('register') }}" method="POST">
                 {{-- protección csrf --}}
                 @csrf
                 <div class="mb-5">
