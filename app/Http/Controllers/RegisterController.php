@@ -34,6 +34,10 @@ class RegisterController extends Controller
             // key => reglas
             // 'name' => 'required|min:5',
             'name' => ['required', 'max:30'],
+            // 'unique: tabla' => verificar que el valor sea unico contra la tabla indicada
+            'username' => ['required', 'unique:users', 'min:3', 'max:20'],
+            'email' => ['required', 'unique:users','email', 'max:60' ],
+            'password' => ['required']
         ]);
     }
 
