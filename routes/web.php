@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::get('/', function () { // => closure
 // ruta, [clase, metodo]
 Route::get('/register', [RegisterController::class, 'index'])->name('register'); // esto hace que los cambios se propagan
 Route::post('/register', [RegisterController::class, 'store']); // si no especifico el name toma el anterior (esto aplica si es la misma url que la anterior)
+
+Route::get('/muro', [PostController::class, 'index'])->name('posts.index');
