@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,6 +32,9 @@ class RegisterController extends Controller
         // Para acceder directamente a un valor
         // dd($request->get('username'));
 
+        // Modificar el Request (hacerlo lo menos posible, solo si es la última opción)
+        $request->request->add(['username' => Str::slug($request->username)]);
+
         // Reglas de validación
         $this->validate($request, [
             // key => reglas
@@ -48,6 +52,8 @@ class RegisterController extends Controller
         // Equivalenete a INSERT INTO usuarios
         User::create([
             'name' => $request->name,
+            // 'username' => Str::lower($request->username), // => Str::lower lo transforma a minuscula
+            // 'username' => Str::slug($request->username), // => Str::slug lo convierte a una URL util, el unique del campo solo funciona con Str::lower
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password), // => Hash para hashear contraseña

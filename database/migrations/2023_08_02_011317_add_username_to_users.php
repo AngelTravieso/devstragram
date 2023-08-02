@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // string => varchar
-            $table->string('username');
+            $table->string('username')->unique(); // debe ser un registro único
         });
     }
 
