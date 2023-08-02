@@ -88,7 +88,7 @@
                             {{-- Mensaje de error --}}
                             {{ $message }}
                         </p>
-                @enderror
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -101,8 +101,14 @@
                         type="password"
                         placeholder="Password de Registro"
                         class="border p-3 w-full rounded @error('password') border-red-500 @enderror"
-                        value="{{ old('password') }}"
                     />
+
+                    @error('password')
+                        <p class="text-white bg-red-500 rounded-lg text-sm my-2 p-2 text-center">
+                            {{-- Mensaje de error --}}
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -111,6 +117,7 @@
                     </label>
                     <input
                         id="password_confirmation"
+                        {{-- Debe ser ajuro password_confirmation (para automatizar esa validación) --}}
                         name="password_confirmation"
                         type="password"
                         placeholder="Repite tu Password"
